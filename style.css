@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cursive', 'Brush Script MT', sans-serif;
+  background: linear-gradient(135deg, #ffe0e9, #fff5d7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.heading h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #b43f53;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.yes,
+.no {
+  font-size: 1.2rem;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.yes {
+  background: linear-gradient(135deg, #b43f53, #ffc3a0);
+  color: white;
+  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.5);
+}
+
+.yes:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(255, 182, 193, 0.7);
+}
+
+.no {
+  background: linear-gradient(135deg, #49ff53, #d3ffde);
+  color: white;
+  box-shadow: 0 8px 20px rgba(182, 255, 193, 0.5);
+}
+
+.no:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(182, 255, 193, 0.7);
+}
+
+#myVideo {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+/* 💡 Mobile Portrait tweaks */
+@media (max-width: 600px) and (orientation: portrait) {
+  .heading h1 {
+    font-size: 1.4rem;
+  }
+  .yes, .no {
+    font-size: 1rem;
+    padding: 8px 18px;
+  }
+}
+
+/* 💡 Mobile Landscape tweaks */
+@media (max-width: 850px) and (orientation: landscape) {
+  .heading h1 {
+    font-size: 1.2rem;
+  }
+  .yes, .no {
+    font-size: 0.9rem;
+    padding: 6px 16px;
+  }
+}

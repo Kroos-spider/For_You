@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YES Button Magic</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="heading">
+    <h1>Do you dare?</h1>
+  </div>
+
+  <div class="button-group">
+    <button class="yes">YES</button>
+    <button class="no">NO</button>
+  </div>
+
+  <video id="myVideo" controls>
+    <source src="hai.mp4" type="video/mp4">
+    Your browser does not support HTML video.
+  </video>
+
+  <script>
+    const noButton = document.querySelector('.no');
+    const yesButton = document.querySelector('.yes');
+    const video = document.getElementById('myVideo');
+
+    // Force initial hidden state
+    video.style.visibility = 'hidden';
+    video.style.opacity = '0';
+
+    let yesWidth = yesButton.offsetWidth;
+    let yesHeight = yesButton.offsetHeight;
+
+    noButton.addEventListener('click', () => {
+      yesWidth += 200;
+      yesHeight += 200;
+
+      yesButton.style.width = yesWidth + 'px';
+      yesButton.style.height = yesHeight + 'px';
+
+      if (yesWidth >= window.innerWidth || yesHeight >= window.innerHeight) {
+        yesButton.style.position = 'fixed';
+        yesButton.style.top = '0';
+        yesButton.style.left = '0';
+        yesButton.style.width = '100vw';
+        yesButton.style.height = '100vh';
+        yesButton.style.fontSize = '2rem';
+        yesButton.textContent = 'YES TAKES OVER!';
+        yesButton.style.borderRadius = '0';
+        yesButton.style.zIndex = '9998';
+
+        noButton.style.display = 'none';
+      }
+    });
+
+    yesButton.addEventListener('click', () => {
+      video.style.visibility = 'visible';
+      video.style.opacity = '1';
+      video.play();
+    });
+  </script>
+</body>
+</html>
